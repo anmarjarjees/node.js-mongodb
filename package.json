@@ -1,0 +1,19 @@
+{
+  "name": "node.js-mongodb",
+  "version": "1.0.0",
+  "description": "Quick demo about using mongodb driver to connect Node.js console app to MongoDB database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app1.js"
+  },
+  "keywords": [
+    "MongoDB",
+    "Node.js"
+  ],
+  "author": "Anmar Jarjees",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  }
+}

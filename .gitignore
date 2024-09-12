@@ -1,3 +1,8 @@
+# mine:
+my-notes.txt
+# This file is ignored as it contains the full connectin string
+atlas_conn_str.js
+
 # Logs
 logs
 *.log
