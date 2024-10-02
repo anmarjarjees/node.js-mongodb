@@ -1,4 +1,4 @@
-// APP2 => Inserting a document to "abc-college.employees":
+// APP2 => CREATE: Inserting a document to "abc-college.employees":
 
 const { MongoClient } = require('mongodb');
 
@@ -8,15 +8,21 @@ const uri = require('./atlas_conn_str');
 const client = new MongoClient(uri);
 
 const dbName = "abc-college";
+
 /* 
 Attention:
-Using different letter-case like "ABC-College",
+Using different letter-case like "ABC-College" instead of "abc-college",
 Mongo will throw this error:
 MongoBulkWriteError: db already exists with different case already have: [abc-college] trying to create [ABC-College]
 */
 
 // We need to specify the collection_name:
 const collectionName = "employees"
+/* 
+ - "employees" => The name of the collection within the database
+ - The "abcCollection" variable is for holding a reference to our MongoDB collection "employees"
+ - Table (SQL) <==> Collection (MQL)
+*/
 
 // abc-college.employees
 
@@ -43,9 +49,11 @@ const emp1 = {
     email: 'alexchow@abcMogoDBcollege.ca',
     job_title: 'Developer',
     age: 58,
+    salary: 25,
     hired_date: new Date(),
 }
 /* 
+NOTE TO REVIEW:
 Although we skipped the id field in "emp1" object,
 don't forget that MongoDB will assign the "_id" field automatically :-)
 */
@@ -54,6 +62,7 @@ async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
+        console.log(`Connected to database: ${dbName}`);
         /*
         insert the "emp1" into the collection "employees" of "abc-college" 
         by calling the "insertOne()" method of our variable "abcCollection"
@@ -78,7 +87,13 @@ async function run() {
         */
     } finally {
         // Ensures that the client will close when you finish/error
-        await client.close();
+        // await client.close();
+        /* 
+        NOTE: Since we need to try again using different way/logic,
+        So we will comment the closing statement,
+        otherwise this error:
+        Connection Error: MongoNetworkError: connection establishment was cancelled
+        */
     }
 }
 
@@ -94,6 +109,7 @@ name: "Alex Chow"
 email: "alexchow@abcMogoDBcollege.ca"
 job_title: "Developer"
 age: 58
+salary: 25,
 hired_date: 2024-04-07T02:16:21.360+00:00
 */
 

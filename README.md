@@ -193,10 +193,8 @@ The output (for example):
   - e) Copy the connection string:
     - Will need to add the password
 
-
-
-### *To be Continued...*
-
+# The code files
+The code files shows the full demonstration of using the CRUD operations using multiple MongodDB methods.
 
 # Credits, References, and Recourses:
 - MongoDB Documentation:

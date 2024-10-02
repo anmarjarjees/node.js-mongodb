@@ -1,4 +1,4 @@
-// APP5 => Listing all the databases
+// APP6 => Listing all the databases
 // Import MongoClient class:
 const { MongoClient } = require('mongodb');
 // Import the MongoDB connection string:

@@ -19,8 +19,12 @@ Destructuring allows us to access specific properties of an object directly, rat
 
 // Importing our MongoDB Connection String from the JS file "atlas_conn_str.js":
 // notice we added ./ to refer to the root location of the current project folder
-// We can use .env (recommended) as explained in my other next repositories
 const uri = require('./atlas_conn_str');
+/* 
+NOTE:
+It's a good practice to use environment variables for sensitive data like connection strings.
+We can use .env (recommended) as clearly explained in my other next repositories
+*/
 
 // Testing the connection:
 // console.log(uri); // should print the uri value
@@ -32,10 +36,14 @@ We only need one "MongoClient" instance per Atlas cluster for an application.
 */
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri);
+/* 
+The new MongoClient instance "client" is used to connect to MongoDB.
+*/
 
 /* 
 Connect to the database by identifying these the "Database" name with connection above
 */
+// The name of the database we're working with  "abc-college"
 const dbName = "abc-college";
 /* 
 Adding the main function to execute the connection to the database
